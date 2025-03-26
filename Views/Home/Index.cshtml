@@ -1,0 +1,49 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center">Notlar Listesi</h1>
+        <div class="d-flex justify-content-between">
+            <a href="/Home/AllNotes" class="btn btn-info">Tüm Notlar</a>
+            <a href="/Home/ArchiveNotes" class="btn btn-dark">Arşivlenen Notlar</a>
+            <a href="/Home/AllDeleteNotes" class="btn btn-danger">Silinmiş Notlar</a>
+        </div>
+    </div>
+</div>
+<hr class="border border-primary border-3 opacity-75">
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center">Kategori Listesi</h1>
+        <div class="d-flex flex-wrap gap-3">
+            @foreach (var category in Model)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img src="@category.ImageURL" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@category.Name</h5>
+                        <p class="card-text">@category.Name Notlarına Ulaşmak için tıklayın.</p>
+                        <a href="/Home/CategoryNote/@category.Id" class="btn btn-primary">Notları Görüntüle</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<hr class="border border-primary border-3 opacity-75">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h2>Kategori Ekle</h2>
+                <a href="/Home/AddCategory" class="btn btn-danger">Kategori Ekle</a>
+            </div>
+            <div>
+                <h2>Not Ekle</h2>
+                <a href="/Home/AddNote" class="btn btn-success">Not Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

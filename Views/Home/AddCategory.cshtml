@@ -1,0 +1,17 @@
+﻿@{
+	
+	ViewData["Title"] = "Add Category";
+}
+<h2>Kategori Ekle</h2>
+
+<form action="/Home/AddCategory" method="post" autocomplete="off">
+	<div class="mb-3 mt-3">
+		<label for="KategoriAdi" class="form-label">Kategori Adı:</label>
+		<input type="text" class="form-control" id="KategoriAdi" placeholder="Enter Kategori Adi" name="Name">
+	</div>
+	<div class="mb-3">
+		<label for="ImageURL" class="form-label">ImageURL:</label>
+		<input type="text" class="form-control" id="ImageURL" placeholder="Enter ImageURL" name="ImageURL">
+	</div>
+	<button type="submit" class="btn btn-primary">Kategori Ekle</button>
+</form>

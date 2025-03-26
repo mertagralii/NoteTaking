@@ -1,0 +1,32 @@
+﻿@model List<Note>
+@{
+	ViewData["Title"] = "All Notes";
+}
+@foreach (var note in Model)
+{
+	<div class="container mt-4">
+
+		<!-- Başlık ve Özet -->
+		<div class="row">
+			<div class="col-12">
+				<h1 class="display-4 text-primary">@note.Title</h1>
+				<p class="lead text-muted">@note.Title Hakkında <a href="/Home/NoteDetails/@note.Id">Detayını görmek için tıkla</a></p>
+			</div>
+		</div>
+
+		<!-- Yazar, Tarih, Kategori Bilgisi -->
+		<div class="row mt-4">
+			<div class="col-md-4">
+				<p class="font-weight-bold"><i class="bi bi-tags"></i> @note.Category.Name</p>
+			</div>
+			<div class="col-md-4">
+				<p class="font-weight-bold"><i class="bi bi-calendar"></i> @note.CreatedDate.ToString("D")</p>
+			</div>
+			<div class="col-md-4">
+				<p class="font-weight-bold text-danger"><i class="bi bi-calendar"></i>Silinmiş</p>
+			</div>
+		</div>
+
+	</div>
+	<hr class="border border-primary border-3 opacity-75">
+}

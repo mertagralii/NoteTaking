@@ -1,0 +1,28 @@
+﻿@model Note
+
+@{
+    ViewData["Title"] = "Note Details";
+}
+
+<div class="mt-4 p-5 bg-success text-white rounded">
+    <span> <i class="bi bi-ticket"></i> @Model.Category.Name</span>
+    <h1 class="text-center">@Model.Title</h1>
+    <img src="@Model.Category.ImageURL" alt="Alternate Text" class="d-block mx-auto" />
+    <p>@Model.Description</p>
+    @if (Model.CreatedDate > Model.UpdateDate)
+    {
+        <div class="mt-2"> Oluşturulma Tarihi : @Model.CreatedDate.ToString("f")</div>
+    }
+    else
+    {
+        <div class="mt-2"> Oluşturulma Tarihi : @Model.CreatedDate.ToString("f")</div>
+        <div class="mt-2"> Son Güncelleme Tarihi : @Model.UpdateDate.ToString("f")</div>
+    }
+    
+
+    <div class="d-flex justify-content-start mt-5 gap-2">
+        <a href="/Home/SendToArchive/@Model.Id" class="btn btn-primary">Arşive Gönder</a>
+        <a href="/Home/UpdateNote/@Model.Id" class="btn btn-info">Düzenle</a>
+        <a href="/Home/DeleteNote/@Model.Id" class="btn btn-danger">Sil</a> 
+    </div>
+</div>

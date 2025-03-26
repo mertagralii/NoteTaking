@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Add Note";
+	List<Category> categories = ViewBag.Categories;
+	  <!-- ViewBag'ten kategoriler alınıyor -->
+}
+
+<h2>Not Ekle</h2>
+
+<form action="/Home/AddNote" method="post" autocomplete="off">
+   
+
+    <select class="form-select" name="CategoryId" aria-label="Default select example">
+        <option disabled selected>Kategori Seçiniz</option>
+        @foreach (var category in categories) 
+        {
+            <option value="@category.Id">@category.Name</option>
+        }
+    </select>
+
+    <div class="mb-3 mt-3">
+        <label for="NotAdi" class="form-label">Not Adı:</label>
+        <input type="text" class="form-control" id="NotAdi" placeholder="Enter Not Adi" name="Title">
+       
+    </div>
+
+    <div class="mb-3">
+        <label for="Description" class="form-label">Açıklama:</label>
+        <input type="text" class="form-control" id="Description" placeholder="Enter Description" name="Description">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Not Ekle</button>
+</form>
