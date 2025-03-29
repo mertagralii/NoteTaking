@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Category
+@{
 	
 	ViewData["Title"] = "Add Category";
 }
@@ -7,11 +8,13 @@
 <form action="/Home/AddCategory" method="post" autocomplete="off">
 	<div class="mb-3 mt-3">
 		<label for="KategoriAdi" class="form-label">Kategori Adı:</label>
-		<input type="text" class="form-control" id="KategoriAdi" placeholder="Enter Kategori Adi" name="Name">
+		<input type="text" required class="form-control" id="KategoriAdi" placeholder="Enter Kategori Adi" name="Name">
+		<span asp-validation-for="Name" class="text-danger"></span>
 	</div>
 	<div class="mb-3">
 		<label for="ImageURL" class="form-label">ImageURL:</label>
-		<input type="text" class="form-control" id="ImageURL" placeholder="Enter ImageURL" name="ImageURL">
+		<input type="text" required class="form-control" id="ImageURL" placeholder="Enter ImageURL" name="ImageURL">
+		<span asp-validation-for="ImageURL" class="text-danger"></span>
 	</div>
 	<button type="submit" class="btn btn-primary">Kategori Ekle</button>
 </form>

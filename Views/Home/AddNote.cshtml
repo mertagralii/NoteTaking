@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Note
+@{
     ViewData["Title"] = "Add Note";
 	List<Category> categories = ViewBag.Categories;
 	  <!-- ViewBag'ten kategoriler alınıyor -->
@@ -9,23 +10,26 @@
 <form action="/Home/AddNote" method="post" autocomplete="off">
    
 
-    <select class="form-select" name="CategoryId" aria-label="Default select example">
+    <select class="form-select" required name="CategoryId" aria-label="Default select example">
         <option disabled selected>Kategori Seçiniz</option>
         @foreach (var category in categories) 
         {
             <option value="@category.Id">@category.Name</option>
         }
     </select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
 
     <div class="mb-3 mt-3">
-        <label for="NotAdi" class="form-label">Not Adı:</label>
-        <input type="text" class="form-control" id="NotAdi" placeholder="Enter Not Adi" name="Title">
+        <label for="NotAdi" class="form-label">Not Başlığı:</label>
+        <input type="text" required class="form-control" id="NotAdi" placeholder="Enter Not Adi" name="Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
        
     </div>
 
     <div class="mb-3">
         <label for="Description" class="form-label">Açıklama:</label>
-        <input type="text" class="form-control" id="Description" placeholder="Enter Description" name="Description">
+        <input type="text" required class="form-control" id="Description" placeholder="Enter Description" name="Description">
+		<span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Not Ekle</button>

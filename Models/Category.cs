@@ -6,10 +6,10 @@ namespace NoteTaking.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="Lütfen Kategoriye bir isim veriniz.")]
         public required string Name { get; set; }
 
-
+        [Required (ErrorMessage ="Lütfen Kategoriye bir resim URL'si girin.")]
         public string? ImageURL { get; set; }
     }
 }
